@@ -36,8 +36,8 @@ class RealNVP(nn.Module):  # inherit from nn.Module
         super(RealNVP, self).__init__()  # nn.Module.__init__()
         self.prior = prior 
         self.mask = nn.Parameter(mask, requires_grad=False)  # could try requires_grad=False
-        self.t = torch.nn.ModuleList([t_net() for _ in range(len(mask))]) 
-        self.s = torch.nn.ModuleList([s_net() for _ in range(len(mask))])
+        self.t = torch.nn.ModuleList([t_net for _ in range(len(mask))]) 
+        self.s = torch.nn.ModuleList([s_net for _ in range(len(mask))])
          
         print("s = ", self.s[0][0].weight[:5])
         print("t = ", self.t[0][0].weight[:5])

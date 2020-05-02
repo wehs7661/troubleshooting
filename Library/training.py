@@ -46,10 +46,10 @@ class BoltzmannGenerator:
     def build_networks(self):
         s_layers = self.affine_layers()
         s_layers.append(nn.Tanh())
-        self.s_net = lambda: nn.Sequential(*s_layers)
+        self.s_net = nn.Sequential(*s_layers)
 
         t_layers = self.affine_layers()
-        self.t_net = lambda: nn.Sequential(*t_layers)
+        self.t_net = nn.Sequential(*t_layers)
     
     def build(self, system):
         """
